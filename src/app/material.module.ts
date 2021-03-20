@@ -1,10 +1,17 @@
 import { NgModule } from "@angular/core";
-import { MatButtonModule} from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { SignupComponent } from "./auth/signup/signup.component";
 
-import { MatIconModule} from '@angular/material/icon'
+const modules = [
+  MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule
+];
 
 @NgModule({
-  imports: [MatButtonModule,MatIconModule],
-  exports: [MatButtonModule, MatIconModule],
+imports: [...modules],
+exports: [...modules],
+declarations: [SignupComponent]
 })
-export class MaterialModule {}
+export class MaterialModule {};
