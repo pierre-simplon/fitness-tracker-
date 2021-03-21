@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { SignupComponent } from "./auth/signup/signup.component";
 
+
 const modules = [
   MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule
 ];
@@ -12,6 +13,6 @@ const modules = [
 @NgModule({
 imports: [...modules],
 exports: [...modules],
-declarations: [SignupComponent]
+declarations: []
 })
 export class MaterialModule {};
