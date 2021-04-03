@@ -8,10 +8,14 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   loginForm: FormGroup;
+  maxDate: Date;
+
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]

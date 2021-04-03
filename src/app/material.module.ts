@@ -3,11 +3,16 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
-import { SignupComponent } from "./auth/signup/signup.component";
-
+import { MatDatepickerModule} from '@angular/material/datepicker'
+import { MatNativeDateModule} from '@angular/material/core'
 
 const modules = [
-  MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule
+  MatButtonModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatInputModule
 ];
 
 @NgModule({
