@@ -18,7 +18,9 @@ export class SignupComponent implements OnInit {
     this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      birthdate: ['',Validators.required],
+      agree: ['',Validators.required],
     })
   }
 
