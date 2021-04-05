@@ -1,5 +1,5 @@
 <section>
-  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-group">
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input
         type="email"
@@ -7,12 +7,12 @@
         formControlName="email"
         class="form-control"
         email required>
-        <mat-error *ngIf="!loginForm.hasError('required') && loginForm.value.email.length>0">E-mail is invalid</mat-error>
-        <mat-error *ngIf="loginForm.value.email.length==0">Field must not be empty</mat-error>
+        <mat-error *ngIf="!signUpForm.hasError('required') && signUpForm.value.email.length>0">E-mail is invalid</mat-error>
+        <mat-error *ngIf="signUpForm.value.email.length==0">Field must not be empty</mat-error>
     </mat-form-field>
     <mat-form-field hintLabel="Should be at least 6 characters long">
-      <input type="password" matInput placeholder="Your password" formControlName="password" class="form-control" minlength="6">
-      <mat-hint align="end"> {{ loginForm.value.password.length }} /6 </mat-hint>
+      <input type="password" matInput placeholder="Your password" formControlName="password" minlength="6">
+      <mat-hint align="end"> {{ signUpForm.value.password.length }} /6 </mat-hint>
       <mat-error>Has to be at least 6 characters long.</mat-error>
     </mat-form-field>
     <mat-form-field>
@@ -21,6 +21,6 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-checkbox name="agree" formControlName="agree" color="primary"> Agree to Terms and Conditions </mat-checkbox>
-    <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid" >Submit</button>
+    <button type="submit" mat-raised-button color="primary" [disabled]="signUpForm.invalid" >Submit</button>
   </form>
 </section>

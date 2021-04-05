@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  loginForm: FormGroup;
+  signUpForm: FormGroup;
   maxDate: Date;
 
 
@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
-    this.loginForm = this.formBuilder.group({
+    this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       birthdate: ['',Validators.required],
@@ -25,10 +25,10 @@ export class SignupComponent implements OnInit {
   }
 
   get getControl(){
-    return this.loginForm.controls;
+    return this.signUpForm.controls;
   }
 
   onSubmit() {
-    console.warn(this.loginForm);
+    console.warn(this.signUpForm);
   }
 }
