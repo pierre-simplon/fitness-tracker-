@@ -17,6 +17,7 @@ import { CurrentTrainingComponent } from './training/current-training/current-tr
 import { NewTrainingComponent } from './training/new-training/new-training.component';
 import { PastTrainingsComponent } from './training/past-trainings/past-trainings.component';
 import { StopTrainingComponent } from './training/stop-training/stop-training.component';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { StopTrainingComponent } from './training/stop-training/stop-training.co
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   entryComponents:[StopTrainingComponent],
   schemas: [
