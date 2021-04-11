@@ -16,6 +16,7 @@ import { TrainingComponent } from './training/training.component';
 import { CurrentTrainingComponent } from './training/current-training/current-training.component';
 import { NewTrainingComponent } from './training/new-training/new-training.component';
 import { PastTrainingsComponent } from './training/past-trainings/past-trainings.component';
+import { StopTrainingComponent } from './training/stop-training/stop-training.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { PastTrainingsComponent } from './training/past-trainings/past-trainings
     PastTrainingsComponent,
     NewTrainingComponent,
     CurrentTrainingComponent,
+    StopTrainingComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { PastTrainingsComponent } from './training/past-trainings/past-trainings
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[StopTrainingComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
   ],
