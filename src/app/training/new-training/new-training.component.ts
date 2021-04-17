@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Exercise } from '../exercice.model';
 import { TrainingService } from '../training.service';
