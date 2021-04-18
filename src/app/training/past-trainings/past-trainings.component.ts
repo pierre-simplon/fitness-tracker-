@@ -26,4 +26,8 @@ export class PastTrainingsComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
+  doFilter($event){
+    this.dataSource.filter = $event.target.value.trim().toLowerCase();
+  }
+
 }
