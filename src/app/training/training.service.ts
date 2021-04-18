@@ -48,4 +48,8 @@ export class TrainingService {
     this.runningExcercice = null;
     this.exerciseChanged.next(null);
   }
+
+  getCompletedOrCancelledExercises(){
+    return this.exercises.slice();
+  }
 }
