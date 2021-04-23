@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Exercise } from '../exercice.model';
@@ -16,6 +17,8 @@ export class PastTrainingsComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
+  @ViewChild(MatPaginator)  paginator: MatPaginator;
+
   constructor(private trainingService: TrainingService) { }
 
   ngOnInit(): void {
@@ -24,6 +27,7 @@ export class PastTrainingsComponent implements OnInit {
 
   ngAfterViewInit(){
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   doFilter($event){
