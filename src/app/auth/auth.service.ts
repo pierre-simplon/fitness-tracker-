@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs'
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { TrainingService } from '../training/training.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class AuthService {
   constructor(
     private router: Router,
     private auth: AngularFireAuth,
+    private trainingService: TrainingService,
   ) { }
 
   registerUser(authData: AuthData) {
@@ -42,6 +44,7 @@ export class AuthService {
     this.router.navigate(['/login'])
     this.isAuthenticated = false;
     this.auth.signOut();
+    this.trainingService.cancelSubscriptions();
   }
 
   isAuth(){
