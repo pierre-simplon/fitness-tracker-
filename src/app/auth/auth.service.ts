@@ -47,7 +47,7 @@ export class AuthService {
     )
     .then(() => {this.uiservice.loadingStateChanged.next(false)})
     .catch(error => {
-      this.snackbar.open(error.message,null ,{ duration: 3000});
+      this.uiservice.showSnackbar(error.message,null ,{ duration: 3000});
       this.uiservice.loadingStateChanged.next(false);
     })
   }
@@ -57,8 +57,8 @@ export class AuthService {
     this.auth.signInWithEmailAndPassword(authData.email,authData.password)
       .then(() => {this.uiservice.loadingStateChanged.next(false)})
       .catch(error => {
-       this.snackbar.open(error.message,null ,{ duration: 3000});
-       this.uiservice.loadingStateChanged.next(false);
+        this.uiservice.showSnackbar(error.message,null ,{ duration: 3000});
+        this.uiservice.loadingStateChanged.next(false);
     });
 }
 
