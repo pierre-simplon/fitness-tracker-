@@ -9,18 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { TrainingComponent } from './training/training.component';
-import { CurrentTrainingComponent } from './training/current-training/current-training.component';
-import { NewTrainingComponent } from './training/new-training/new-training.component';
-import { PastTrainingsComponent } from './training/past-trainings/past-trainings.component';
-import { StopTrainingComponent } from './training/stop-training/stop-training.component';
 import { AuthService } from './auth/auth.service';
 import { TrainingService } from './training/training.service';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { UIService } from './shared/ui.service';
 import { AuthModule } from './auth/auth.module';
+import { TrainingModule } from './training/training.module';
 
 
 
@@ -30,11 +25,6 @@ import { AuthModule } from './auth/auth.module';
     HeaderComponent,
     SidenavListComponent,
     WelcomeComponent,
-    TrainingComponent,
-    PastTrainingsComponent,
-    NewTrainingComponent,
-    CurrentTrainingComponent,
-    StopTrainingComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,12 +34,12 @@ import { AuthModule } from './auth/auth.module';
     FormsModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    TrainingModule,
     AuthModule,
   ],
   providers: [AuthService,TrainingService,UIService],
   bootstrap: [AppComponent],
-  entryComponents:[StopTrainingComponent],
+  entryComponents:[],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
   ],
