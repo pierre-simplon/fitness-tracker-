@@ -1,9 +1,7 @@
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { FormsModule } from "@angular/forms";
-import { MaterialModule } from "../material.module";
+import { SharedModule } from "../shared/shared.module";
 import { CurrentTrainingComponent } from "./current-training/current-training.component";
 import { NewTrainingComponent } from "./new-training/new-training.component";
 import { PastTrainingsComponent } from "./past-trainings/past-trainings.component";
@@ -19,9 +17,7 @@ import { TrainingComponent } from "./training.component";
     CurrentTrainingComponent,
   ],
   imports: [
-    MaterialModule,
-    CommonModule,
-    FormsModule,
+    SharedModule,
     FlexLayoutModule,
     AngularFirestoreModule,
   ],
