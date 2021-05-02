@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { ReplaySubject, Subscription } from 'rxjs';
 import { TrainingService } from '../training.service';
 import { Exercise } from '../exercice.model';
 import { UIService } from 'src/app/shared/ui.service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-training',
@@ -13,6 +14,7 @@ import { UIService } from 'src/app/shared/ui.service';
 export class NewTrainingComponent implements OnInit,OnDestroy {
   exercises: Exercise[];
   isLoading = true;
+  destroyed$ = new ReplaySubject(1);
   private exercicesSubscription: Subscription;
   private loadingSubscription: Subscription
 
@@ -22,10 +24,14 @@ export class NewTrainingComponent implements OnInit,OnDestroy {
     ) {  }
 
   ngOnInit(): void {
-    this.loadingSubscription = this.uiservice.loadingStateChanged.subscribe(
+    this.loadingSubscription = this.uiservice.loadingStateChanged
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe(
       isLoading => {this.isLoading = isLoading;}
     )
-    this.exercicesSubscription = this.trainingService.exercisesChanged.subscribe(exercices => this.exercises = exercices);
+    this.exercicesSubscription = this.trainingService.exercisesChanged
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe(exercices => this.exercises = exercices);
     this.fetchExercises();
   }
 
@@ -38,7 +44,7 @@ export class NewTrainingComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(){
-    this.exercicesSubscription.unsubscribe();
-    this.loadingSubscription.unsubscribe()
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 }

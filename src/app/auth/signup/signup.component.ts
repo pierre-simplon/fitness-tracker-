@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { ReplaySubject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { UIService } from 'src/app/shared/ui.service';
 import { AuthService } from '../auth.service';
 
@@ -13,7 +14,8 @@ export class SignupComponent implements OnInit,OnDestroy {
   signUpForm: FormGroup;
   maxDate: Date;
   isLoading: boolean = false;
-  private LoadingSubscription:Subscription;
+  destroyed$ = new ReplaySubject(1);
+  private loadingSubscription:Subscription;
 
 
   constructor(
@@ -24,7 +26,9 @@ export class SignupComponent implements OnInit,OnDestroy {
     { }
 
   ngOnInit(): void {
-    this.LoadingSubscription = this.uiservice.loadingStateChanged.subscribe(isLoading => {this.isLoading = isLoading});
+    this.loadingSubscription = this.uiservice.loadingStateChanged
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe(isLoading => {this.isLoading = isLoading});
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
     this.signUpForm = this.formBuilder.group({
@@ -48,6 +52,7 @@ export class SignupComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(){
-    this.LoadingSubscription.unsubscribe();
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 }

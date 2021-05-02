@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { _MatTabGroupBase } from '@angular/material/tabs';
-import { Subscription } from 'rxjs';
+import { ReplaySubject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { UIService } from 'src/app/shared/ui.service';
 import { AuthService } from '../auth.service';
 
@@ -13,6 +14,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit,OnDestroy {
   loginForm: FormGroup;
   isLoading = false;
+  destroyed$ = new ReplaySubject(1);
   private loadingSubscription: Subscription;
 
   constructor(
@@ -26,7 +28,9 @@ export class LoginComponent implements OnInit,OnDestroy {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     })
-    this.loadingSubscription = this.uiservice.loadingStateChanged.subscribe(isLoading => this.isLoading = isLoading);
+    this.loadingSubscription = this.uiservice.loadingStateChanged
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe(isLoading => this.isLoading = isLoading);
   }
 
   get getControl(){
@@ -41,6 +45,7 @@ export class LoginComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(){
-    this.loadingSubscription.unsubscribe();
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 }

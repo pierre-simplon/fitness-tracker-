@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Subscription } from 'rxjs';
+import { ReplaySubject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Exercise } from '../exercice.model';
 import { TrainingService } from '../training.service';
 
@@ -12,7 +13,7 @@ import { TrainingService } from '../training.service';
   styleUrls: ['./past-trainings.component.css']
 })
 export class PastTrainingsComponent implements OnInit,OnDestroy,AfterViewInit {
-
+  destroyed$ = new ReplaySubject(1);
   displayedColumns = ['date','name','duration','calories','state'];
   dataSource = new MatTableDataSource<Exercise>();
 
@@ -25,7 +26,9 @@ export class PastTrainingsComponent implements OnInit,OnDestroy,AfterViewInit {
   constructor(private trainingService: TrainingService) { }
 
   ngOnInit(): void {
-    this.exerciseChangedSubscription = this.trainingService.finishedExercisesChanged.subscribe(
+    this.exerciseChangedSubscription = this.trainingService.finishedExercisesChanged
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe(
       (exercises: Exercise[]) => {
         this.dataSource.data= exercises; }
     )
@@ -42,7 +45,8 @@ export class PastTrainingsComponent implements OnInit,OnDestroy,AfterViewInit {
   }
 
   ngOnDestroy(){
-    this.exerciseChangedSubscription.unsubscribe();
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 
 }
