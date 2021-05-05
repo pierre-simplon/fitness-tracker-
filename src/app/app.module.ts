@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { UIService } from './shared/ui.service';
 import { AuthModule } from './auth/auth.module';
-import { TrainingModule } from './training/training.module';
 import { SharedModule } from './shared/shared.module';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 
@@ -29,8 +29,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
-    TrainingModule,
     AuthModule,
   ],
   providers: [AuthService,TrainingService,UIService],
