@@ -1,36 +1,36 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { _MatTabGroupBase } from '@angular/material/tabs';
-import { ReplaySubject, Subscription } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { Observable, ReplaySubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { UIService } from 'src/app/shared/ui.service';
 import { AuthService } from '../auth.service';
+import * as fromApp from '../../app.reducer'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit,OnDestroy {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  isLoading = false;
+  isLoading$: Observable<boolean>;
   destroyed$ = new ReplaySubject(1);
-  private loadingSubscription: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private uiservice: UIService,
+    private store: Store<{ui:fromApp.State}>,
     ) { }
 
   ngOnInit(): void {
+    this.isLoading$ = this.store.pipe(map(state => state.ui.isLoading));
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     })
-    this.loadingSubscription = this.uiservice.loadingStateChanged
-    .pipe(takeUntil(this.destroyed$))
-    .subscribe(isLoading => this.isLoading = isLoading);
   }
 
   get getControl(){
@@ -44,8 +44,4 @@ export class LoginComponent implements OnInit,OnDestroy {
     })
   }
 
-  ngOnDestroy(){
-    this.destroyed$.next(true);
-    this.destroyed$.complete();
-  }
 }
