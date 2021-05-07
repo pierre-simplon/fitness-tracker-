@@ -6,7 +6,7 @@ import { Observable, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UIService } from 'src/app/shared/ui.service';
 import { AuthService } from '../auth.service';
-import * as fromApp from '../../app.reducer'
+import * as fromRoot from '../../app.reducer'
 
 @Component({
   selector: 'app-login',
@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private uiservice: UIService,
-    private store: Store<{ui:fromApp.State}>,
+    private store: Store<{ui:fromRoot.State}>,
     ) { }
 
   ngOnInit(): void {
-    this.isLoading$ = this.store.pipe(map(state => state.ui.isLoading));
+    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
