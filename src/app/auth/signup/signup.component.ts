@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
       email: this.signUpForm.value.email,
       password: this.signUpForm.value.password
     })
-    this.uiservice.loadingStateChanged.next(true);
+    this.isLoading$ = this.store.select(fromRoot.getIsLoading)
   }
 
 }
