@@ -1,4 +1,3 @@
-
 import { START_LOADING, STOP_LOADING, UIActions } from "./ui.actions";
 
 export interface State {

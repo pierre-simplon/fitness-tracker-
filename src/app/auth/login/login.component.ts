@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { _MatTabGroupBase } from '@angular/material/tabs';
 import { Store } from '@ngrx/store';
 import { Observable, ReplaySubject } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { UIService } from 'src/app/shared/ui.service';
 import { AuthService } from '../auth.service';
 import * as fromRoot from '../../app.reducer'
 
@@ -21,8 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private uiservice: UIService,
-    private store: Store<{ui:fromRoot.State}>,
+    private store: Store<fromRoot.State>,
     ) { }
 
   ngOnInit(): void {
