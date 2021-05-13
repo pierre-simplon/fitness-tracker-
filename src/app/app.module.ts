@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,8 +16,10 @@ import { SharedModule } from './shared/shared.module';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-
+export const storeDevTools =
+!environment.production ? [StoreDevtoolsModule.instrument()] : [];
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { reducers } from './app.reducer';
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,
     StoreModule.forRoot(reducers),
+    storeDevTools,
   ],
   providers: [AuthService,TrainingService,UIService],
   bootstrap: [AppComponent],
