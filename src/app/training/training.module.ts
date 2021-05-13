@@ -7,6 +7,8 @@ import { PastTrainingsComponent } from "./past-trainings/past-trainings.componen
 import { StopTrainingComponent } from "./stop-training/stop-training.component";
 import { TrainingRoutingModule } from "./training-routing.module";
 import { TrainingComponent } from "./training.component";
+import { StoreModule} from '@ngrx/store'
+import { trainingReducer } from "./training.reducer";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { TrainingComponent } from "./training.component";
     SharedModule,
     FlexLayoutModule,
     TrainingRoutingModule,
+    StoreModule.forFeature('training',trainingReducer)
   ],
 exports: []})
 export class TrainingModule {}
