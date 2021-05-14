@@ -1,6 +1,6 @@
 # FitnessTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+This project was generated with Angular CLI version 11.0.1 and updated to  [Angular CLI version 12.0](https://github.com/angular/angular-cli)
 
 ## Development server
 
