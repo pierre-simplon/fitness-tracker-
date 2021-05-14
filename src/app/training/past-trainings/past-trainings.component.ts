@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ReplaySubject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Exercise } from '../exercice.model';
+import { Exercise } from '../exercise.model';
 import { TrainingService } from '../training.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { Exercise } from "./exercice.model";
+import { Exercise } from "./exercise.model";
 
 export const SET_AVAILABLE_TRAININGS = '[Training] Set Available Exercises';
 export const SET_FINISHED_TRAININGS = '[Training] Set Finished Exercises';
