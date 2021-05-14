@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ReplaySubject, Subscription } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import * as fromTraining from './training.reducer'
+import { Store } from '@ngrx/store';
 import { TrainingService } from './training.service';
 
 @Component({
@@ -8,28 +9,16 @@ import { TrainingService } from './training.service';
   templateUrl: './training.component.html',
   styleUrls: ['./training.component.css']
 })
-export class TrainingComponent implements OnInit,OnDestroy {
-  ongoingTraining = false;
-  exerciseSubscription: Subscription
-  destroyed$ = new ReplaySubject(1);
+export class TrainingComponent implements OnInit {
+  ongoingTraining$: Observable<boolean>;
 
-  constructor(private trainingService: TrainingService) { }
+  constructor(
+    private store: Store<fromTraining.State>,
+    private trainingService: TrainingService,
+    ) { }
 
   ngOnInit(): void {
-    this.exerciseSubscription = this.trainingService.exerciseChanged
-    .pipe(takeUntil(this.destroyed$))
-    .subscribe(exercise => {
-      if (exercise) {
-        this.ongoingTraining = true;
-      } else {
-        this.ongoingTraining = false;
-      }
-    })
+    this.trainingService.fetchAvailableExercises();
+    this.ongoingTraining$ = this.store.select(fromTraining.getIsTraining);
   }
-
-  ngOnDestroy(): void {
-    this.destroyed$.next(true);
-    this.destroyed$.complete();
-  }
-
 }

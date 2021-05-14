@@ -22,7 +22,7 @@ import { trainingReducer } from "./training.reducer";
     SharedModule,
     FlexLayoutModule,
     TrainingRoutingModule,
-    StoreModule.forFeature('training',trainingReducer)
+    StoreModule.forFeature('training',trainingReducer),
   ],
 exports: []})
 export class TrainingModule {}
