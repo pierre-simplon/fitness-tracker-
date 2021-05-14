@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { AngularFireModule } from "@angular/fire";
 import { ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "../shared/shared.module";
@@ -16,6 +16,9 @@ import { SignupComponent } from "./signup/signup.component";
     AngularFireModule,
     AuthRoutingModule,
   ],
-  exports: []
+  exports: [],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+  ],
 })
 export class AuthModule {}

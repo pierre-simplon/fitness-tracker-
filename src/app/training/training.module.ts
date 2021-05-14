@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { SharedModule } from "../shared/shared.module";
 import { CurrentTrainingComponent } from "./current-training/current-training.component";
@@ -23,6 +23,9 @@ import { trainingReducer } from "./training.reducer";
     FlexLayoutModule,
     TrainingRoutingModule,
     StoreModule.forFeature('training',trainingReducer),
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
   ],
 exports: []})
 export class TrainingModule {}
