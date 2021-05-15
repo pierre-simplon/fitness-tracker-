@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { _MatTabGroupBase } from '@angular/material/tabs';
 import { Store } from '@ngrx/store';
-import { Observable, ReplaySubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import * as fromRoot from '../../app.reducer'
 
@@ -14,7 +14,6 @@ import * as fromRoot from '../../app.reducer'
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading$: Observable<boolean>;
-  destroyed$ = new ReplaySubject(1);
 
   constructor(
     private formBuilder: FormBuilder,

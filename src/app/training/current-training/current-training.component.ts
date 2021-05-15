@@ -1,7 +1,6 @@
-import { Component,  OnDestroy,  OnInit  } from '@angular/core';
+import { Component,  OnInit  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { ReplaySubject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { StopTrainingComponent } from '../stop-training/stop-training.component';
 import { TrainingService } from '../training.service';
@@ -12,11 +11,11 @@ import * as fromTraining from '../training.reducer';
   templateUrl: './current-training.component.html',
   styleUrls: ['./current-training.component.css']
 })
-export class CurrentTrainingComponent implements OnInit,OnDestroy {
+export class CurrentTrainingComponent implements OnInit {
 
   progress = 0;
   timer: number;
-  destroyed$ = new ReplaySubject(1);
+
   constructor(
     private dialog: MatDialog,
     private trainingService: TrainingService,
@@ -47,7 +46,6 @@ export class CurrentTrainingComponent implements OnInit,OnDestroy {
     const dialogRef = this.dialog.open(StopTrainingComponent, {data: {progress: this.progress}})
 
     dialogRef.afterClosed()
-    .pipe(takeUntil(this.destroyed$))
     .subscribe(result => {
       if (result){
         this.trainingService.cancelExercise(this.progress)
@@ -56,10 +54,5 @@ export class CurrentTrainingComponent implements OnInit,OnDestroy {
         this.startOrResumeTimer()
       }
     });
-  }
-
-  ngOnDestroy(){
-    this.destroyed$.next(true);
-    this.destroyed$.complete();
   }
 }
