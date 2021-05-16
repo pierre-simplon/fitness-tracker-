@@ -16,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
+import { SettingModule } from './setting/setting.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { reducers } from './app.reducer';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    SettingModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,

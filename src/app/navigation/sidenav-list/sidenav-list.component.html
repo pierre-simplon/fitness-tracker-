@@ -9,6 +9,9 @@
   <a mat-list-item routerLink="/training" (click)="onClose()" *ngIf="isAuth$">
     <mat-icon>fitness_center</mat-icon>
     <span class="nav-caption">Training</span></a>
+    <a mat-list-item routerLink="/settings" (click)="onClose()" *ngIf="isAuth$">
+      <mat-icon>settings</mat-icon>
+      <span class="nav-caption">Setings</span></a>
   <mat-list-item (click)="onLogout()" *ngIf="isAuth$ | async">
     <button mat-icon-button>
       <mat-icon>eject</mat-icon>

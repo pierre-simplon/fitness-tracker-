@@ -21,6 +21,9 @@
         <a routerLink="/training">Training</a>
       </li>
       <li *ngIf="isAuth$">
+        <a routerLink="/settings">Settings</a>
+      </li>
+      <li *ngIf="isAuth$">
         <a style="cursor: pointer" (click)="onLogout()">LogOut</a>
       </li>
     </ul>
