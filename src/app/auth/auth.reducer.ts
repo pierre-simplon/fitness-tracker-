@@ -25,6 +25,5 @@ export function authReducer(state = initialState, action:AuthActions){
 }
 
 export function getIsAuth(state:State) {
-  console.log("new state:" , state.isAuthenticated);
   return state.isAuthenticated;
 }
