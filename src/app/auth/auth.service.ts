@@ -61,5 +61,6 @@ export class AuthService {
 
   logout() {
     this.auth.signOut();
+    this.store.dispatch(new Auth.SetUnauthenticated())
   }
 }
