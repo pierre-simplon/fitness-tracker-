@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { SharedModule } from "../shared/shared.module";
 import { SettingComponent } from "./setting.component";
+import { SettingsRoutingModule } from "./settings-routing.module";
 
 
 @NgModule({
@@ -11,9 +12,10 @@ import { SettingComponent } from "./setting.component";
   imports: [
     SharedModule,
     FlexLayoutModule,
+    SettingsRoutingModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
   ],
-exports: []})
+})
 export class SettingModule {}
