@@ -86,4 +86,8 @@ export class TrainingService {
   cancelSubscriptions(){
     this.fbSubs.forEach(sub => sub.unsubscribe());
   }
+
+  EditTraining(exercise: any) {
+    throw new Error('Method not implemented.');
+  }
 }
