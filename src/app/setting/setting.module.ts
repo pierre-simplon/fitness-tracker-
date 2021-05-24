@@ -5,11 +5,14 @@ import { SharedModule } from "../shared/shared.module";
 import { trainingReducer } from "../training/training.reducer";
 import { SettingComponent } from "./setting.component";
 import { SettingsRoutingModule } from "./settings-routing.module";
+import { SetTrainingComponent } from './set-training/set-training.component';
+
 
 
 @NgModule({
   declarations: [
     SettingComponent,
+    SetTrainingComponent,
   ],
   imports: [
     SharedModule,

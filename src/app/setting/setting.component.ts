@@ -15,6 +15,7 @@ import { Exercise } from '../training/exercise.model';
 export class SettingComponent implements OnInit {
   exercises$: Observable<Exercise[]>;
   isLoading$: Observable<boolean>;
+  onEditingTraining$: Observable<Exercise>;
 
   constructor(
     private trainingService: TrainingService,
@@ -24,6 +25,7 @@ export class SettingComponent implements OnInit {
 
     ngOnInit(): void {
       this.isLoading$ = this.store.select(fromRoot.getIsLoading);
+      this.onEditingTraining$ = this.store.select(fromTraining.getEditingTraining);
       this.exercises$ = this.store.select(fromTraining.getAvailableExercises)
     }
 
