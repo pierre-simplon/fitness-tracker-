@@ -87,7 +87,7 @@ export class TrainingService {
     this.fbSubs.forEach(sub => sub.unsubscribe());
   }
 
-  EditTraining(exercise: any) {
-    throw new Error('Method not implemented.');
+  EditTraining(selectedId: string) {
+    this.store.dispatch(new Training.StartEditTraining(selectedId));
   }
 }
