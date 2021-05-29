@@ -17,7 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
 import { SettingModule } from './setting/setting.module';
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,10 @@ import { SettingModule } from './setting/setting.module';
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,
     StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [AuthService,TrainingService,UIService],
   bootstrap: [AppComponent],
