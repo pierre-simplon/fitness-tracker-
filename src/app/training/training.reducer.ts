@@ -12,19 +12,19 @@ export interface TrainingState {
   editingTraining: Exercise,
 }
 
-export interface State extends fromRoot.State{
+export interface State extends fromRoot.State {
   training: TrainingState,
 }
 
-const initialState:TrainingState = {
+const initialState: TrainingState = {
   availableExercises: [],
   finishedExercises: [],
   activeTraining: null,
   editingTraining: null,
 }
 
-export function trainingReducer(state = initialState, action:TrainingActions){
-  switch(action.type) {
+export function trainingReducer(state = initialState, action: TrainingActions) {
+  switch (action.type) {
     case SET_AVAILABLE_TRAININGS:
       return {
         ...state,
@@ -37,25 +37,25 @@ export function trainingReducer(state = initialState, action:TrainingActions){
       };
     case START_TRAINING:
       return {
-      ...state,
-      activeTraining: { ...state.availableExercises.find(ex => ex.id === action.payload)}
-    };
+        ...state,
+        activeTraining: { ...state.availableExercises.find(ex => ex.id === action.payload) }
+      };
     case STOP_TRAINING:
       return {
         ...state,
         activeTraining: null
-    };
+      };
     case START_EDIT_TRAINING:
       return {
-      ...state,
-      activeTraining: { ...state.availableExercises.find(ex => ex.id === action.payload)}
-    };
+        ...state,
+        editingTraining: { ...state.availableExercises.find(ex => ex.id === action.payload) }
+      };
     case STOP_EDIT_TRAINING:
       return {
         ...state,
-        activeTraining: null
-    }
-    default:{
+        editingTraining: null
+      }
+    default: {
       return state
     }
   }
@@ -63,12 +63,12 @@ export function trainingReducer(state = initialState, action:TrainingActions){
 
 export const getTrainingState = createFeatureSelector<TrainingState>('training');
 
-export const getAvailableExercises = createSelector(getTrainingState,(state:TrainingState) => state.availableExercises);
+export const getAvailableExercises = createSelector(getTrainingState, (state: TrainingState) => state.availableExercises);
 
-export const getActiveTrainings = createSelector(getTrainingState,(state:TrainingState) => state.activeTraining);
-export const getEditingTraining = createSelector(getTrainingState,(state:TrainingState) => state.editingTraining);
+export const getActiveTrainings = createSelector(getTrainingState, (state: TrainingState) => state.activeTraining);
+export const getEditingTraining = createSelector(getTrainingState, (state: TrainingState) => state.editingTraining);
 
-export const getFinishedExercise = createSelector(getTrainingState,(state:TrainingState) => state.finishedExercises);
+export const getFinishedExercise = createSelector(getTrainingState, (state: TrainingState) => state.finishedExercises);
 
-export const getIsTraining = createSelector(getTrainingState,(state:TrainingState) => state.activeTraining != null);
-export const getIsEditing = createSelector(getTrainingState,(state:TrainingState) => state.editingTraining != null);
+export const getIsTraining = createSelector(getTrainingState, (state: TrainingState) => state.activeTraining != null);
+export const getIsEditing = createSelector(getTrainingState, (state: TrainingState) => state.editingTraining != null);

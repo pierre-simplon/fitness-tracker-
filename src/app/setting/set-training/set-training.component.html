@@ -1,1 +1,20 @@
-<p>set-training works!</p>
+<div class="set-training" fxLayout="column" fxLayoutAlign="center center"
+>
+  <mat-card fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
+    <label>
+      Name
+      <input type="text" formControlName="name" required>
+    </label>
+    <label>
+      Duration:
+      <input type="number" formControlName="duration" required>
+    </label>
+    <label>
+      Calories:
+      <input type="number" formControlName="calories" required>
+    </label>
+    <button type="submit" [disabled]="!exerciseForm.valid">Submit</button>
+  </form>
+  </mat-card>
+</div>
