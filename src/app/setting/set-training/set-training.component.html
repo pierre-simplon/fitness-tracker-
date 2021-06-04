@@ -8,11 +8,11 @@
     </label>
     <label>
       Duration:
-      <input type="number" formControlName="duration" required>
+      <input type="number" formControlName="duration" min=1 required>
     </label>
     <label>
       Calories:
-      <input type="number" formControlName="calories" required>
+      <input type="number" formControlName="calories" min=1 required>
     </label>
     <button type="submit" [disabled]="!exerciseForm.valid">Submit</button>
   </form>
