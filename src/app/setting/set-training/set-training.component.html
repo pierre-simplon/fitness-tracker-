@@ -4,7 +4,7 @@
   <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
     <label>
       Name
-      <input type="text" formControlName="name" required>
+      <input type="text" formControlName="name" [value]="editingExercise.name"  required>
     </label>
     <label>
       Duration:
