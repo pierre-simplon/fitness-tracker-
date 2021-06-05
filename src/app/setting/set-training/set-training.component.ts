@@ -19,8 +19,13 @@ export class SetTrainingComponent implements OnInit {
   });
 
   editingExercise: Exercise;
-  newExerciseToSave: Exercise;
 
+  newExerciseToSave: Exercise = {
+    id: '',
+    name: '',
+    calories: 1,
+    duration: 1
+  }
   constructor(
     private store: Store<fromTraining.State>,
     private trainingService: TrainingService,
@@ -35,7 +40,6 @@ export class SetTrainingComponent implements OnInit {
     this.newExerciseToSave.calories = this.exerciseForm.value.calories;
     this.newExerciseToSave.duration = this.exerciseForm.value.duration;
     this.newExerciseToSave.id = this.editingExercise.id;
-    console.log('Exercise to save: ', this.newExerciseToSave);
     this.trainingService.updateDatabaseWith(this.newExerciseToSave);
   }
 
