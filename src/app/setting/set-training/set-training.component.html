@@ -1,20 +1,20 @@
 <div class="set-training" fxLayout="column" fxLayoutAlign="center center"
 >
   <mat-card fxLayout="column" fxLayoutAlign="center center">
-  <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
-    <label>
-      Name
-      <input type="text" formControlName="name" [value]="editingExercise.name"  required>
-    </label>
-    <label>
-      Duration:
-      <input type="number" formControlName="duration" min=1 required>
-    </label>
-    <label>
-      Calories:
-      <input type="number" formControlName="calories" min=1 required>
-    </label>
-    <button type="submit" [disabled]="!exerciseForm.valid">Submit</button>
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput class="name" type="text" formControlName="name" required>
+      <mat-hint>Name</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput class="duration" type="number" formControlName="duration" min=1 required>
+      <mat-hint>Duration</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput class="calories" type="number" formControlName="calories" min=1 required>
+      <mat-hint>Calories</mat-hint>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!exerciseForm.valid">Submit</button>
   </form>
   </mat-card>
 </div>

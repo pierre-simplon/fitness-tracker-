@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { Exercise } from 'src/app/training/exercise.model';
@@ -12,11 +12,9 @@ import * as fromTraining from '../../training/training.reducer'
   styleUrls: ['./set-training.component.css']
 })
 export class SetTrainingComponent implements OnInit {
-  exerciseForm = new FormGroup({
-    name: new FormControl(''),
-    duration: new FormControl(''),
-    calories: new FormControl(''),
-  });
+
+
+
 
   editingExercise: Exercise;
 
@@ -26,13 +24,20 @@ export class SetTrainingComponent implements OnInit {
     calories: 1,
     duration: 1
   }
+  exerciseForm: FormGroup;
   constructor(
+    private formBuilder: FormBuilder,
     private store: Store<fromTraining.State>,
     private trainingService: TrainingService,
   ) { }
 
   ngOnInit(): void {
     this.getEditingTraining();
+    this.exerciseForm = this.formBuilder.group({
+      name: [this.editingExercise.name, [Validators.required]],
+      duration: [this.editingExercise.duration, [Validators.required]],
+      calories: [this.editingExercise.calories, Validators.required],
+    })
   }
 
   onSubmit(): void {

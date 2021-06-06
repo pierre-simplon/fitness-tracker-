@@ -1,3 +1,7 @@
 .set-training {
   padding: 40px;
 }
+
+.name {
+  width: 300px;
+}
