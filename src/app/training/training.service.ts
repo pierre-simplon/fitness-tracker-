@@ -90,6 +90,7 @@ export class TrainingService {
 
   updateDatabaseWith(exercise: Exercise) {
     this.db.collection('availableExercices').doc(exercise.id).update(exercise)
+    this.store.dispatch(new Training.StopEditTraining());
   }
 
   cancelSubscriptions() {
