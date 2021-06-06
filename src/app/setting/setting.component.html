@@ -1,4 +1,4 @@
-<section class="new-training" fxLayout fxLayoutAlign="center">
+<section class="new-training" fxLayout fxLayoutAlign="center" *ngIf="!(onEditingTraining$ | async)">
   <form (ngSubmit)="onEditTraining(f)" #f="ngForm">
   <mat-card fxFlex.xs="100%" fxFlex="400px">
     <mat-card-title fxLayoutAlign="center"> Select a Workout to Edit</mat-card-title>
