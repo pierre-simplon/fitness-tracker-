@@ -8,6 +8,7 @@ import { SettingsRoutingModule } from "./settings-routing.module";
 import { SetTrainingComponent } from './set-training/set-training.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { AddTrainingComponent } from './add-training/add-training.component';
+import { RemoveTrainingComponent } from './remove-training/remove-training.component';
 
 
 
@@ -16,6 +17,7 @@ import { AddTrainingComponent } from './add-training/add-training.component';
     SettingComponent,
     SetTrainingComponent,
     AddTrainingComponent,
+    RemoveTrainingComponent,
   ],
   imports: [
     SharedModule,
