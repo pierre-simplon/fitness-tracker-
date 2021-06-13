@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs/operators';
 import { Exercise } from 'src/app/training/exercise.model';
@@ -12,10 +12,6 @@ import * as fromTraining from '../../training/training.reducer'
   styleUrls: ['./set-training.component.css']
 })
 export class SetTrainingComponent implements OnInit {
-
-
-
-
   editingExercise: Exercise;
 
   newExerciseToSave: Exercise = {
