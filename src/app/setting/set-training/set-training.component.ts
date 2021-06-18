@@ -28,7 +28,7 @@ export class SetTrainingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getEditingTraining();
+    this.editingExercise = this.trainingService.getEditingTraining();
     this.exerciseForm = this.formBuilder.group({
       name: [this.editingExercise.name, [Validators.required]],
       duration: [this.editingExercise.duration, [Validators.required]],
@@ -44,9 +44,5 @@ export class SetTrainingComponent implements OnInit {
     this.trainingService.updateDatabaseWith(this.newExerciseToSave);
   }
 
-  getEditingTraining() {
-    this.store.select(fromTraining.getEditingTraining).pipe(take(1)).subscribe(exercise => {
-      this.editingExercise = exercise
-    });
-  }
+
 }
