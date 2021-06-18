@@ -1,7 +1,7 @@
 
 import { Exercise } from "./exercise.model";
 import * as fromRoot from '../app.reducer';
-import { TrainingActions, SET_AVAILABLE_TRAININGS, SET_FINISHED_TRAININGS, START_TRAINING, STOP_TRAINING, START_EDIT_TRAINING, STOP_EDIT_TRAINING } from "./training.actions";
+import { TrainingActions, SET_AVAILABLE_TRAININGS, SET_FINISHED_TRAININGS, START_TRAINING, STOP_TRAINING, START_EDIT_TRAINING, STOP_EDIT_TRAINING, START_REMOVE_TRAINING, STOP_REMOVE_TRAINING } from "./training.actions";
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 
 
@@ -10,6 +10,7 @@ export interface TrainingState {
   finishedExercises: Exercise[],
   activeTraining: Exercise,
   editingTraining: Exercise,
+  removingTraining: Exercise,
 }
 
 export interface State extends fromRoot.State {
@@ -21,6 +22,7 @@ const initialState: TrainingState = {
   finishedExercises: [],
   activeTraining: null,
   editingTraining: null,
+  removingTraining: null,
 }
 
 export function trainingReducer(state = initialState, action: TrainingActions) {
@@ -55,6 +57,16 @@ export function trainingReducer(state = initialState, action: TrainingActions) {
         ...state,
         editingTraining: null
       }
+    case START_REMOVE_TRAINING:
+      return {
+        ...state,
+        removingTraining: { ...state.availableExercises.find(ex => ex.id === action.payload) }
+      };
+    case STOP_REMOVE_TRAINING:
+      return {
+        ...state,
+        removingTraining: null
+      }
     default: {
       return state
     }
@@ -67,6 +79,7 @@ export const getAvailableExercises = createSelector(getTrainingState, (state: Tr
 
 export const getActiveTrainings = createSelector(getTrainingState, (state: TrainingState) => state.activeTraining);
 export const getEditingTraining = createSelector(getTrainingState, (state: TrainingState) => state.editingTraining);
+export const getRemovingTraining = createSelector(getTrainingState, (state: TrainingState) => state.removingTraining);
 
 export const getFinishedExercise = createSelector(getTrainingState, (state: TrainingState) => state.finishedExercises);
 
