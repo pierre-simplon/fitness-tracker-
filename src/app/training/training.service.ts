@@ -100,4 +100,26 @@ export class TrainingService {
   EditTraining(selectedId: string) {
     this.store.dispatch(new Training.StartEditTraining(selectedId));
   }
+
+  getEditingTraining():Exercise {
+    let fetchedExercise: Exercise;
+    this.store.select(fromTraining.getEditingTraining).pipe(take(1)).subscribe(exercise => {
+      fetchedExercise = exercise
+    });
+    return fetchedExercise;
+  }
+
+  RemoveTraining(){
+    this.store.select(fromTraining.getRemovingTraining).pipe(take(1)).subscribe(ex =>{
+      console.log('exercise to remove: ', JSON.stringify(ex));
+      this.removeExerciseFromDatabase(ex)
+
+    });
+    this.store.dispatch(new Training.StopEditTraining());
+  }
+
+  removeExerciseFromDatabase(ex: Exercise): void {
+    this.db.collection('availableExercices').doc(ex.id).delete()
+    console.log('exercise removed: ', JSON.stringify(ex));
+  }
 }

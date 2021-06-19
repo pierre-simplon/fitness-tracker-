@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Exercise } from 'src/app/training/exercise.model';
+import { TrainingService } from 'src/app/training/training.service';
 
 @Component({
   selector: 'app-remove-training',
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemoveTrainingComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    private trainingService: TrainingService) { }
 
   ngOnInit(): void {
   }
 
   deleteExercise(){
-    console.log("deleting");
+     this.trainingService.RemoveTraining();
   }
+
+
 }
