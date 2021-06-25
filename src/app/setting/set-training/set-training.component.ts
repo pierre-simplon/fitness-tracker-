@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { take } from 'rxjs/operators';
 import { Exercise } from 'src/app/training/exercise.model';
 import { TrainingService } from 'src/app/training/training.service';
 import * as fromTraining from '../../training/training.reducer'
+import * as Training from '../../training/training.actions';
 
 @Component({
   selector: 'app-set-training',
@@ -21,6 +21,7 @@ export class SetTrainingComponent implements OnInit {
     duration: 1
   }
   exerciseForm: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<fromTraining.State>,
@@ -44,5 +45,9 @@ export class SetTrainingComponent implements OnInit {
     this.trainingService.updateDatabaseWith(this.newExerciseToSave);
   }
 
-
+  deleteExercise(){
+      this.store.dispatch(new Training.StartRemoveTraining(this.editingExercise.id));
+      this.trainingService.removeExerciseFromDatabase(this.editingExercise)
+      this.store.dispatch(new Training.StopRemoveTraining());
+  }
 }

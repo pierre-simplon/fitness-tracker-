@@ -14,7 +14,10 @@
       <input matInput class="calories" type="number" formControlName="calories" min=1 required>
       <mat-hint>Calories</mat-hint>
     </mat-form-field>
-    <button mat-fab color="primary" type="submit" [disabled]="!exerciseForm.valid"><mat-icon>done</mat-icon></button>
+    <section>
+      <button mat-fab color="primary" type="submit" [disabled]="!exerciseForm.valid"><mat-icon>done</mat-icon></button>
+      <button mat-fab color="primary" (click)="deleteExercise()"><mat-icon>delete</mat-icon></button>
+    </section>
   </form>
   </mat-card>
 </div>
