@@ -113,4 +113,9 @@ export class TrainingService {
     this.db.collection('availableExercices').doc(ex.id).delete()
     console.log('exercise removed: ', JSON.stringify(ex));
   }
+
+  addExerciseToDatabase(ex: Exercise): void {
+    this.db.collection('availableExercices').add(ex);
+    console.log('exercise added: ', JSON.stringify(ex));
+  }
 }

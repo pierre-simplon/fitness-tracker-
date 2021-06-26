@@ -50,4 +50,10 @@ export class SetTrainingComponent implements OnInit {
       this.trainingService.removeExerciseFromDatabase(this.editingExercise)
       this.store.dispatch(new Training.StopRemoveTraining());
   }
+
+  addExercise(){
+    this.store.dispatch(new Training.StartAddTraining(this.editingExercise.id));
+    this.trainingService.addExerciseToDatabase(this.editingExercise);
+    this.store.dispatch(new Training.StopAddTraining());
+  }
 }
