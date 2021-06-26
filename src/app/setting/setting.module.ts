@@ -7,7 +7,6 @@ import { SettingComponent } from "./setting.component";
 import { SettingsRoutingModule } from "./settings-routing.module";
 import { SetTrainingComponent } from './set-training/set-training.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import { AddTrainingComponent } from './add-training/add-training.component';
 
 
 
@@ -15,7 +14,6 @@ import { AddTrainingComponent } from './add-training/add-training.component';
   declarations: [
     SettingComponent,
     SetTrainingComponent,
-    AddTrainingComponent,
   ],
   imports: [
     SharedModule,
