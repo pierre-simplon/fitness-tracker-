@@ -5,6 +5,8 @@ import { Exercise } from 'src/app/training/exercise.model';
 import { TrainingService } from 'src/app/training/training.service';
 import * as fromTraining from '../../training/training.reducer'
 import * as Training from '../../training/training.actions';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteTrainingComponent } from '../delete-training/delete-training.component';
 
 @Component({
   selector: 'app-set-training',
@@ -26,6 +28,7 @@ export class SetTrainingComponent implements OnInit {
     private formBuilder: FormBuilder,
     private store: Store<fromTraining.State>,
     private trainingService: TrainingService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -46,9 +49,15 @@ export class SetTrainingComponent implements OnInit {
   }
 
   deleteExercise(){
-      this.store.dispatch(new Training.StartRemoveTraining(this.editingExercise.id));
-      this.trainingService.removeExerciseFromDatabase(this.editingExercise)
-      this.store.dispatch(new Training.StopRemoveTraining());
+    const dialogRef = this.dialog.open(DeleteTrainingComponent, {data: {exercise: this.editingExercise}})
+    dialogRef.afterClosed()
+    .subscribe(result => {
+      if (result){
+        this.store.dispatch(new Training.StartRemoveTraining(this.editingExercise.id));
+        this.trainingService.removeExerciseFromDatabase(this.editingExercise)
+        this.store.dispatch(new Training.StopRemoveTraining());
+      }
+    });
   }
 
   addExercise(){
