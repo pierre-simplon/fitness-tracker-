@@ -30,6 +30,7 @@
     "@ngrx/store-devtools": "^12.0.0",
     "firebase": "^7.0 || ^8.0",
     "rxjs": "~6.6.0",
+    "sass-migrator": "^1.5.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
