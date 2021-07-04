@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Exercise } from 'src/app/training/exercise.model';
@@ -6,7 +6,7 @@ import { TrainingService } from 'src/app/training/training.service';
 import * as fromTraining from '../../training/training.reducer'
 import * as Training from '../../training/training.actions';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteTrainingComponent } from '../delete-training/delete-training.component';
+import { DialogTrainingComponent } from '../dialog-training/dialog-training.component';
 
 @Component({
   selector: 'app-set-training',
@@ -15,7 +15,7 @@ import { DeleteTrainingComponent } from '../delete-training/delete-training.comp
 })
 export class SetTrainingComponent implements OnInit {
   editingExercise: Exercise;
-
+  trainingAction: string;
   newExerciseToSave: Exercise = {
     id: '',
     name: '',
@@ -29,6 +29,7 @@ export class SetTrainingComponent implements OnInit {
     private store: Store<fromTraining.State>,
     private trainingService: TrainingService,
     private dialog: MatDialog,
+
   ) { }
 
   ngOnInit(): void {
@@ -49,7 +50,8 @@ export class SetTrainingComponent implements OnInit {
   }
 
   deleteExercise(){
-    const dialogRef = this.dialog.open(DeleteTrainingComponent, {data: {exercise: this.editingExercise}})
+    this.trainingAction = 'delete';
+    const dialogRef = this.dialog.open(DialogTrainingComponent, {data: {action: this.trainingAction, exercise: this.editingExercise}})
     dialogRef.afterClosed()
     .subscribe(result => {
       if (result){
@@ -61,8 +63,15 @@ export class SetTrainingComponent implements OnInit {
   }
 
   addExercise(){
-    this.store.dispatch(new Training.StartAddTraining(this.editingExercise.id));
-    this.trainingService.addExerciseToDatabase(this.editingExercise);
-    this.store.dispatch(new Training.StopAddTraining());
+    this.trainingAction = 'add';
+    const dialogRef = this.dialog.open(DialogTrainingComponent, {data: {action: this.trainingAction, exercise: this.editingExercise}})
+    dialogRef.afterClosed()
+    .subscribe(result => {
+      if (result) {
+        this.store.dispatch(new Training.StartAddTraining(this.editingExercise.id));
+        this.trainingService.addExerciseToDatabase(this.editingExercise);
+        this.store.dispatch(new Training.StopAddTraining());
+      }
+    });
   }
 }
