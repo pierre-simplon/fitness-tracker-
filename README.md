@@ -1,6 +1,7 @@
 # FitnessTracker
 
 This project was generated with Angular CLI version 11.0.1 and updated to  [Angular CLI version 12.1](https://github.com/angular/angular-cli)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/pierre-simplon/fitness-tracker-)
 
 ## Development server
 
