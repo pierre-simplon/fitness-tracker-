@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="0b892c7805a1c5afc0b7c21c3449760860fe7f3d" datatype="html">
+        <source>Your email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a09292b812db5a97de88f361977beece7a222d37" datatype="html">
+        <source>Invalid login email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">login email error</note>
+      </trans-unit>
+      <trans-unit id="ada1313288a658e324ae7263bf27dd8ef2eef66b" datatype="html">
+        <source>Please enter your login email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">login email hint</note>
+      </trans-unit>
+      <trans-unit id="5b5b91438db5731debea388908f788bab8d3d404" datatype="html">
+        <source>Your password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="94144ce0b823dfe775b2efc3d3087ac6634bb7d9" datatype="html">
+        <source>Please enter your password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">login password hint</note>
+      </trans-unit>
+      <trans-unit id="cf134960c9f8743da06a1d3fccc36d46a57d7564" datatype="html">
+        <source>Missing password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">login password error</note>
+      </trans-unit>
+      <trans-unit id="71c77bb8cecdf11ec3eead24dd1ba506573fa9cd" datatype="html">
+        <source>Submit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">submit button text</note>
+      </trans-unit>
+      <trans-unit id="5662ba8d35e3a446712766fa282d88400648c293" datatype="html">
+        <source>E-mail is invalid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">login email error</note>
+      </trans-unit>
+      <trans-unit id="613f11fb8a3e45fd5b3c5c9985eed33dc515b613" datatype="html">
+        <source>Field must not be empty</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">login email empy error</note>
+      </trans-unit>
+      <trans-unit id="4b1f3187307da97808c5a9f40583868e51f63762" datatype="html">
+        <source>Should be at least 6 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b85e0966999d5e42fd17c71b094a4471609d54bf" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ signUpForm.value.password.length }}"/> /6 </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">hint password</note>
+      </trans-unit>
+      <trans-unit id="e97c54c751f4cfd3c3052ade88595c18803f5be7" datatype="html">
+        <source>Has to be at least 6 characters long.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">password error</note>
+      </trans-unit>
+      <trans-unit id="ddd3ff3a659e56f5f7dcdcbb0607ebd988bc2dc2" datatype="html">
+        <source>Your Birthdate</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f99317dc29a74812b359c2e0329ca72354401da1" datatype="html">
+        <source> Agree to Terms and Conditions </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/signup/signup.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">checkbox</note>
+      </trans-unit>
+      <trans-unit id="432c72240eebf018596bfd95dc05239a1207ad86" datatype="html">
+        <source> Select a Workout to Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/setting.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Card title</note>
+      </trans-unit>
+      <trans-unit id="1a0df87309ea10032d093a074ccd0cb4b3768c3e" datatype="html">
+        <source>Select type of training</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/setting.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/new-training/new-training.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f9b46c643f4736d5009b7a2688da2baecf9c820c" datatype="html">
+        <source>Fetch Again</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/setting.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/new-training/new-training.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Button text</note>
+      </trans-unit>
+      <trans-unit id="044bac1bec01a489ac896032ecb32cf896d983f7" datatype="html">
+        <source> Time to start a WorkOut</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/new-training/new-training.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">card title</note>
+      </trans-unit>
+      <trans-unit id="8434d4a28744d7df82cd39ef8da4266fcbc40064" datatype="html">
+        <source>Start</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/new-training/new-training.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Button text</note>
+      </trans-unit>
+      <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
+        <source>Filter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2f933b826a570836cab04f683970a2d22068458c" datatype="html">
+        <source>Date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">table column title</note>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">table column title</note>
+      </trans-unit>
+      <trans-unit id="25d73f2638e1f4e47c919c63567be44d1cf1be51" datatype="html">
+        <source>calories</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">table column title</note>
+      </trans-unit>
+      <trans-unit id="a02ea1d4e7424ca989929da5e598f379940fdbf2" datatype="html">
+        <source>Duration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">table column title</note>
+      </trans-unit>
+      <trans-unit id="873b72903b1858a9cd6c8967521030b4d7d1435b" datatype="html">
+        <source>State</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">table column title</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
