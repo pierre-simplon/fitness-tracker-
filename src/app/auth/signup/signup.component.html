@@ -3,25 +3,25 @@
     <mat-form-field>
       <input
         type="email"
-        matInput placeholder="Your email"
+        matInput placeholder="Your email" i18n-placeholder
         formControlName="email"
         class="form-control"
         email required>
-        <mat-error *ngIf="!signUpForm.hasError('required') && signUpForm.value.email.length>0">E-mail is invalid</mat-error>
-        <mat-error *ngIf="signUpForm.value.email.length==0">Field must not be empty</mat-error>
+        <mat-error *ngIf="!signUpForm.hasError('required') && signUpForm.value.email.length>0" i18n="login email error">E-mail is invalid</mat-error>
+        <mat-error *ngIf="signUpForm.value.email.length==0" i18n="login email empy error">Field must not be empty</mat-error>
     </mat-form-field>
-    <mat-form-field hintLabel="Should be at least 6 characters long">
-      <input type="password" matInput placeholder="Your password" formControlName="password" minlength="6">
-      <mat-hint align="end"> {{ signUpForm.value.password.length }} /6 </mat-hint>
-      <mat-error>Has to be at least 6 characters long.</mat-error>
+    <mat-form-field hintLabel="Should be at least 6 characters long" i18n-hintLabel>
+      <input type="password" matInput placeholder="Your password" i18n-placeholder formControlName="password" minlength="6">
+      <mat-hint align="end" i18n="hint password"> {{ signUpForm.value.password.length }} /6 </mat-hint>
+      <mat-error i18n="password error">Has to be at least 6 characters long.</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Your Birthdate" [matDatepicker]="picker" [max]="maxDate" formControlName="birthdate">
+      <input matInput placeholder="Your Birthdate" i18n-placeholder [matDatepicker]="picker" [max]="maxDate" formControlName="birthdate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <mat-checkbox name="agree" formControlName="agree" color="primary"> Agree to Terms and Conditions </mat-checkbox>
-    <button *ngIf="!(isLoading$ |async)"type="submit" mat-raised-button color="primary" [disabled]="signUpForm.invalid" >Submit</button>
+    <mat-checkbox name="agree" formControlName="agree" color="primary" i18n="checkbox"> Agree to Terms and Conditions </mat-checkbox>
+    <button *ngIf="!(isLoading$ |async)"type="submit" mat-raised-button color="primary" [disabled]="signUpForm.invalid" i18n="submit button text">Submit</button>
     <mat-spinner *ngIf="isLoading$ |async"></mat-spinner>
   </form>
 </section>
