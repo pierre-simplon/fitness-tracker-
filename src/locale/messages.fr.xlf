@@ -46,7 +46,7 @@
       </trans-unit>
       <trans-unit id="94144ce0b823dfe775b2efc3d3087ac6634bb7d9" datatype="html">
         <source>Please enter your password</source>
-         <target>Entrez votre mot de passe svp</target>
+        <target>Entrez votre mot de passe svp</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
           <context context-type="linenumber">14</context>
@@ -135,6 +135,142 @@
         </context-group>
         <note priority="1" from="description">checkbox</note>
       </trans-unit>
+      <trans-unit id="acc1655733901c2814ece86b1e50febc2fc70f10" datatype="html">
+        <source>Angular Fitness</source>
+        <target>Angular Fitness</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">App Logo text</note>
+      </trans-unit>
+      <trans-unit id="717a5e3574fec754fbeb348c2d5561c4d81facc4" datatype="html">
+        <source>Signup</source>
+        <target>S'enregistrer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/sidenav-list/sidenav-list.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Header link</note>
+      </trans-unit>
+      <trans-unit id="eb02150aa6d931ff8de2596ce503f4333a22d623" datatype="html">
+        <source>LogIn</source>
+        <target>Se connecter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/sidenav-list/sidenav-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Header link</note>
+      </trans-unit>
+      <trans-unit id="ed6283b90d495dba95b8ea1c42455acc1d4916a4" datatype="html">
+        <source>Training</source>
+        <target>S'entrainer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/sidenav-list/sidenav-list.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Header link</note>
+      </trans-unit>
+      <trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html">
+        <source>Settings</source>
+        <target>Paramètres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Header link</note>
+      </trans-unit>
+      <trans-unit id="49b7330acd5eb56f23cd161e962bc9efb055f6d8" datatype="html">
+        <source>LogOut</source>
+        <target>Se déconnecter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/header/header.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/sidenav-list/sidenav-list.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Header link</note>
+      </trans-unit>
+      <trans-unit id="e8723024bc2aaba6c5896d46f2b95b4027853b32" datatype="html">
+        <source>Setings</source>
+        <target>Paramètres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navigation/sidenav-list/sidenav-list.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Navigation link</note>
+      </trans-unit>
+      <trans-unit id="3def53442a44642dd8348f9845b510e0626523b7" datatype="html">
+        <source>Are you sure ?</source>
+        <target>Etes-vous sur ?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/dialog-training/dialog-training.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/stop-training/stop-training.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Dialogue title</note>
+      </trans-unit>
+      <trans-unit id="ab924345ecb2160c7ab009298b28f751458f5c64" datatype="html">
+        <source>You want <x id="INTERPOLATION" equiv-text="{{ passedData.action}}"/> <x id="INTERPOLATION_1" equiv-text="{{ passedData.exercise.name }}"/></source>
+        <target>Vous souhaitez <x id="INTERPOLATION" equiv-text="{{ passedData.action}}"/> <x id="INTERPOLATION_1" equiv-text="{{ passedData.exercise.name }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/dialog-training/dialog-training.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Dialogue text</note>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <target>Nom</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/set-training/set-training.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Set hint</note>
+      </trans-unit>
+      <trans-unit id="a02ea1d4e7424ca989929da5e598f379940fdbf2" datatype="html">
+        <source>Duration</source>
+        <target>Durée</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/set-training/set-training.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Set hint</note>
+      </trans-unit>
+      <trans-unit id="9e43fcbd8fe0937debbf9460874db77ce21b123c" datatype="html">
+        <source>Calories</source>
+        <target>Calories</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setting/set-training/set-training.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Set hint</note>
+      </trans-unit>
       <trans-unit id="432c72240eebf018596bfd95dc05239a1207ad86" datatype="html">
         <source> Select a Workout to Edit</source>
         <target> Selectionnez un entrainement à éditer</target>
@@ -146,7 +282,7 @@
       </trans-unit>
       <trans-unit id="1a0df87309ea10032d093a074ccd0cb4b3768c3e" datatype="html">
         <source>Select type of training</source>
-        <target>Selectionnez le type d'exercice</target>
+        <target>Selectionnez l'exercice</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/setting/setting.component.html</context>
           <context context-type="linenumber">7</context>
@@ -169,9 +305,36 @@
         </context-group>
         <note priority="1" from="description">Button text</note>
       </trans-unit>
+      <trans-unit id="14e451b36bf74f29a3f75c754b057e64fd04577c" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ progress }}"/> %</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ progress }}"/> %</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/current-training/current-training.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">header</note>
+      </trans-unit>
+      <trans-unit id="95ae9e57ef29400ebfc0b2bee62eb04d5577d819" datatype="html">
+        <source>Keep on going, You can do it !</source>
+        <target>Allez, continuez, vous pouvez y arriver !</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/current-training/current-training.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">encouraging quote</note>
+      </trans-unit>
+      <trans-unit id="1d0d5c9a36e72bd9643ff1ede69736ae063d652b" datatype="html">
+        <source>Stop</source>
+        <target>Arrêter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/current-training/current-training.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">button text</note>
+      </trans-unit>
       <trans-unit id="044bac1bec01a489ac896032ecb32cf896d983f7" datatype="html">
         <source> Time to start a WorkOut</source>
-        <target> Il est tant de s'entrainer</target>
+        <target> Il est l'heure de s'entrainer</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/training/new-training/new-training.component.html</context>
           <context context-type="linenumber">4</context>
@@ -204,30 +367,12 @@
         </context-group>
         <note priority="1" from="description">table column title</note>
       </trans-unit>
-      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
-        <source>Name</source>
-        <target>Nom</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-        <note priority="1" from="description">table column title</note>
-      </trans-unit>
       <trans-unit id="25d73f2638e1f4e47c919c63567be44d1cf1be51" datatype="html">
         <source>calories</source>
         <target>Calories</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
           <context context-type="linenumber">16</context>
-        </context-group>
-        <note priority="1" from="description">table column title</note>
-      </trans-unit>
-      <trans-unit id="a02ea1d4e7424ca989929da5e598f379940fdbf2" datatype="html">
-        <source>Duration</source>
-        <target>Durée</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/training/past-trainings/past-trainings.component.html</context>
-          <context context-type="linenumber">20</context>
         </context-group>
         <note priority="1" from="description">table column title</note>
       </trans-unit>
@@ -239,6 +384,89 @@
           <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">table column title</note>
+      </trans-unit>
+      <trans-unit id="2701e8b226d61b37b0ab70bc2104f147bd3ce48c" datatype="html">
+        <source>You already got <x id="INTERPOLATION" equiv-text="{{ passedData.progress }}"/> %</source>
+        <target>Vous avez déja effectué <x id="INTERPOLATION" equiv-text="{{ passedData.progress }}"/> %</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/stop-training/stop-training.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">information progress status</note>
+      </trans-unit>
+      <trans-unit id="4f20f2d5a6882190892e58b85f6ccbedfa737952" datatype="html">
+        <source>Yes</source>
+        <target>Oui</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/stop-training/stop-training.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">button text</note>
+      </trans-unit>
+      <trans-unit id="3d3ae7deebc5949b0c1c78b9847886a94321d9fd" datatype="html">
+        <source>No</source>
+        <target>Non</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/training/stop-training/stop-training.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">button text</note>
+      </trans-unit>
+      <trans-unit id="a62e6ff628b79f70d4246c69e112e946a4659976" datatype="html">
+        <source>ACTIVITY</source>
+        <target>ACTIVITE</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">header</note>
+      </trans-unit>
+      <trans-unit id="62d90be13fc40242694c65fb4b75edea9dfc30ce" datatype="html">
+        <source>
+      Stay active and enjoy better health and more fun !
+    </source>
+        <target>Restez actif et profitez d'une meilleure santé !</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+        <note priority="1" from="description">quote</note>
+      </trans-unit>
+      <trans-unit id="f36683b100fe9422291952748154fdafb307cbf0" datatype="html">
+        <source>COMMUNITY</source>
+        <target>COMMUNAUTE</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">header</note>
+      </trans-unit>
+      <trans-unit id="e4660c6000b7247ad62edfc516aae7c3da74ae73" datatype="html">
+        <source>Get to know other people who share your passion</source>
+        <target>Faites connaissance avec des personnes partageant votre passion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <note priority="1" from="description">quote</note>
+      </trans-unit>
+      <trans-unit id="b4307d004b9c69da961a36680fd81c2678923c47" datatype="html">
+        <source>CHALLENGES</source>
+        <target>CHALLENGES</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">header</note>
+      </trans-unit>
+      <trans-unit id="e9ed1a82bf0d890f49a3129c966f93450bc87099" datatype="html">
+        <source>Never stop ! Dive into new challenges every day</source>
+        <target>N'arrêtez pas ! Challengez vous quotidiennement</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcome/welcome.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+        <note priority="1" from="description">quote</note>
       </trans-unit>
     </body>
   </file>

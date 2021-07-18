@@ -4,15 +4,15 @@
   <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input matInput class="name" type="text" formControlName="name" required>
-      <mat-hint>Name</mat-hint>
+      <mat-hint i18n="Set hint">Name</mat-hint>
     </mat-form-field>
     <mat-form-field>
       <input matInput class="duration" type="number" formControlName="duration" min=1 required>
-      <mat-hint>Duration</mat-hint>
+      <mat-hint i18n="Set hint">Duration</mat-hint>
     </mat-form-field>
     <mat-form-field>
       <input matInput class="calories" type="number" formControlName="calories" min=1 required>
-      <mat-hint>Calories</mat-hint>
+      <mat-hint i18n="Set hint">Calories</mat-hint>
     </mat-form-field>
     <section>
       <button mat-fab color="primary" type="submit" [disabled]="!exerciseForm.valid"><mat-icon>done</mat-icon></button>
