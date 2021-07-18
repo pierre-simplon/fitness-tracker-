@@ -5,6 +5,12 @@
   "projects": {
     "fitness-tracker": {
       "projectType": "application",
+      "i18n": {
+        "locales": {
+          "en": "src/locale/messages.xlf",
+          "fr": "src/locale/messages.fr.xlf"
+        }
+      },
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
@@ -13,6 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": ["fr"],
             "outputPath": "dist/fitness-tracker",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -35,6 +42,12 @@
             "namedChunks": true
           },
           "configurations": {
+            "fr": {
+              "aot": true,
+              "outputPath": "dist/fr/",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/fr/"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -70,6 +83,9 @@
             "browserTarget": "fitness-tracker:build"
           },
           "configurations": {
+            "fr": {
+              "browserTarget": "fitness-tracker:build:fr"
+            },
             "production": {
               "browserTarget": "fitness-tracker:build:production"
             }
