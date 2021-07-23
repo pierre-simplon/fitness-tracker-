@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,7 +41,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
   ],
-  providers: [AuthService,TrainingService,UIService],
+  providers: [AuthService,TrainingService,UIService,Title],
   bootstrap: [AppComponent],
   entryComponents:[],
   schemas: [
