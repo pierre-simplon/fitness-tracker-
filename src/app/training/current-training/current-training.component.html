@@ -1,6 +1,21 @@
-<section class="current-training" fxLayout="column" fxLayoutAlign="center center">
-  <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
+<section
+  class="current-training"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+>
+  <mat-progress-spinner
+    mode="determinate"
+    [value]="progress"
+  ></mat-progress-spinner>
   <h1 i18n="header">{{ progress }} %</h1>
+  <h2>{{ imagePath }}</h2>
   <p i18n="encouraging quote">Keep on going, You can do it !</p>
-  <button mat-raised-button color="accent" (click)="onStop()" i18n="button text">Stop</button>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="onStop()"
+    i18n="button text"
+  >
+    Stop
+  </button>
 </section>

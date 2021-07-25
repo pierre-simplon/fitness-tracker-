@@ -4,5 +4,6 @@ export interface Exercise {
   duration: number;
   calories: number;
   date?: Date;
+  imagePath?: string;
   state?: 'completed' | 'cancelled' | 'editing' | null;
 }
