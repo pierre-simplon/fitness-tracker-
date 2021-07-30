@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Injectable,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Exercise } from 'src/app/training/exercise.model';
@@ -37,9 +31,6 @@ export class SetTrainingComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  @ViewChild('fileInput') fileInput: ElementRef;
-  fileAttr = 'Choose File';
-
   ngOnInit(): void {
     this.editingExercise = this.trainingService.getEditingTraining();
     this.exerciseForm = this.formBuilder.group({
@@ -54,6 +45,7 @@ export class SetTrainingComponent implements OnInit {
     this.newExerciseToSave.calories = this.exerciseForm.value.calories;
     this.newExerciseToSave.duration = this.exerciseForm.value.duration;
     this.newExerciseToSave.id = this.editingExercise.id;
+    this.newExerciseToSave.imagePath = this.exerciseForm.value.imagePath;
     this.trainingService.updateDatabaseWith(this.newExerciseToSave);
   }
 
@@ -91,24 +83,14 @@ export class SetTrainingComponent implements OnInit {
 
   onUploadFileEvt(imgFile: any) {
     if (imgFile.target.files && imgFile.target.files[0]) {
-      this.fileAttr = '';
-      Array.from(imgFile.target.files).forEach((file: File) => {
-        this.fileAttr += file.name + ' - ';
-      });
-
-      let reader = new FileReader();
-      reader.onload = (e: any) => {
-        let image = new Image();
-        image.src = e.target.result;
-        image.onload = (rs) => {
-          let imgBase64Path = e.target.result;
-        };
-      };
-      reader.readAsDataURL(imgFile.target.files[0]);
-
-      this.fileInput.nativeElement.value = '';
-    } else {
-      this.fileAttr = 'Choose File';
+      this.newExerciseToSave.imagePath = imgFile.target.files[0];
+      this.trainingService.uploadTrainingImage(
+        this.newExerciseToSave.imagePath
+      );
     }
+  }
+
+  uploadImage(): void {
+    console.log('trigger upload');
   }
 }
