@@ -19,7 +19,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": ["fr"],
+            "localize": [
+              "fr"
+            ],
             "outputPath": "dist/fitness-tracker",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -116,15 +118,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
@@ -147,5 +145,8 @@
       }
     }
   },
-  "defaultProject": "fitness-tracker"
+  "defaultProject": "fitness-tracker",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
