@@ -39,24 +39,16 @@
         />
         <mat-hint i18n="Set hint">Calories</mat-hint>
       </mat-form-field>
-      <mat-form-field>
-        <section>
-          <mat-toolbar>
-            <input matInput [(ngModel)]="fileAttr" readonly name="name" />
-            <button mat-flat-button color="primary">Browse File</button>
-          </mat-toolbar>
-          <input
-            type="file"
-            #fileInput
-            id="uploadFile"
-            (change)="onUploadFileEvt($event)"
-            name="uploadFile"
-            multiple="multiple"
-            accept="image/*"
-          />
-        </section>
-        <mat-hint>Image of the exercise</mat-hint>
-      </mat-form-field>
+      <mat-toolbar>
+        <input
+          type="file"
+          class="imagePath"
+          formControlName="imagePath"
+          accept="image/*"
+        />
+
+        <button mat-flat-button color="primary">Upload Image</button>
+      </mat-toolbar>
       <section>
         <button
           mat-fab

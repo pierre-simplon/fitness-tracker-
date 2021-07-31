@@ -37,6 +37,7 @@ export class SetTrainingComponent implements OnInit {
       name: [this.editingExercise.name, [Validators.required]],
       duration: [this.editingExercise.duration, [Validators.required]],
       calories: [this.editingExercise.calories, Validators.required],
+      imagePath: [this.editingExercise.imagePath],
     });
   }
 
