@@ -1,17 +1,30 @@
 <mat-nav-list>
-  <a mat-list-item routerLink="/signup" (click)="onClose()" *ngIf="!(isAuth$ | async)">
+  <a
+    mat-list-item
+    routerLink="/signup"
+    (click)="onClose()"
+    *ngIf="(isAuth$ | async) === false"
+  >
     <mat-icon>person_add</mat-icon>
     <span class="nav-caption" i18n="Navigation link">Signup</span>
   </a>
-  <a mat-list-item routerLink="/login" (click)="onClose()" *ngIf="!(isAuth$ | async)">
+  <a
+    mat-list-item
+    routerLink="/login"
+    (click)="onClose()"
+    *ngIf="(isAuth$ | async) === false"
+  >
     <mat-icon>person</mat-icon>
-    <span class="nav-caption" i18n="Navigation link">LogIn</span></a>
+    <span class="nav-caption" i18n="Navigation link">LogIn</span></a
+  >
   <a mat-list-item routerLink="/training" (click)="onClose()" *ngIf="isAuth$">
     <mat-icon>fitness_center</mat-icon>
-    <span class="nav-caption" i18n="Navigation link">Training</span></a>
+    <span class="nav-caption" i18n="Navigation link">Training</span></a
+  >
   <a mat-list-item routerLink="/settings" (click)="onClose()" *ngIf="isAuth$">
     <mat-icon>settings</mat-icon>
-    <span class="nav-caption" i18n="Navigation link">Setings</span></a>
+    <span class="nav-caption" i18n="Navigation link">Setings</span></a
+  >
   <mat-list-item (click)="onLogout()" *ngIf="isAuth$ | async">
     <button mat-icon-button>
       <mat-icon>eject</mat-icon>

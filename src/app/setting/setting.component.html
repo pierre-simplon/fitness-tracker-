@@ -1,21 +1,61 @@
-<section class="new-training" fxLayout fxLayoutAlign="center" *ngIf="!(onEditingTraining$ | async)">
+<section
+  class="new-training"
+  fxLayout
+  fxLayoutAlign="center"
+  *ngIf="(onEditingTraining$ | async) === null"
+>
   <form (ngSubmit)="onEditTraining(f)" #f="ngForm">
-  <mat-card fxFlex.xs="100%" fxFlex="400px">
-    <mat-card-title fxLayoutAlign="center" i18n="Card title"> Select a Workout to Edit</mat-card-title>
-    <mat-card-content fxLayoutAlign="center">
-      <mat-form-field *ngIf="!(isLoading$ | async) && exercises$ | async">
-        <mat-select placeholder="Select type of training" i18n-placeholder ngModel name="exercise" required>
-          <mat-option  *ngFor="let exercise of (exercises$ | async)" [value]="exercise.id">  {{ exercise.name }} </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
-    </mat-card-content>
-    <mat-card-actions fxLayoutAlign="center" *ngIf="!(isLoading$ | async)">
-      <button mat-fab color="primary" *ngIf="exercises$ | async" mat-button type="submit" [disabled]="f.invalid" ><mat-icon>edit</mat-icon></button>
-      <button *ngIf="!(exercises$ | async)" mat-button type="button" (click)="fetchExercises()" i18n="Button text">Fetch Again</button>
-    </mat-card-actions>
-  </mat-card>
-</form>
+    <mat-card fxFlex.xs="100%" fxFlex="400px">
+      <mat-card-title fxLayoutAlign="center" i18n="Card title">
+        Select a Workout to Edit</mat-card-title
+      >
+      <mat-card-content fxLayoutAlign="center">
+        <mat-form-field
+          *ngIf="(isLoading$ | async) === false && exercises$ | async"
+        >
+          <mat-select
+            placeholder="Select type of training"
+            i18n-placeholder
+            ngModel
+            name="exercise"
+            required
+          >
+            <mat-option
+              *ngFor="let exercise of exercises$ | async"
+              [value]="exercise.id"
+            >
+              {{ exercise.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions
+        fxLayoutAlign="center"
+        *ngIf="(isLoading$ | async) === false"
+      >
+        <button
+          mat-fab
+          color="primary"
+          *ngIf="exercises$ | async"
+          mat-button
+          type="submit"
+          [disabled]="f.invalid"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          *ngIf="(exercises$ | async) === null"
+          mat-button
+          type="button"
+          (click)="fetchExercises()"
+          i18n="Button text"
+        >
+          Fetch Again
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </section>
 <app-set-training *ngIf="onEditingTraining$ | async"></app-set-training>
 <section class="buttons" fxLayout fxLayoutAlign="center">

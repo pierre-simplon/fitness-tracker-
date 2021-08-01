@@ -1,20 +1,45 @@
 <section>
-  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
     <mat-form-field>
       <input
         type="email"
-        matInput placeholder="Your email" i18n-placeholder
+        matInput
+        placeholder="Your email"
+        i18n-placeholder
         formControlName="email"
-        email required>
-        <mat-error i18n="login email error">Invalid login email</mat-error>
-        <mat-hint i18n="login email hint">Please enter your login email</mat-hint>
+        email
+        required
+      />
+      <mat-error i18n="login email error">Invalid login email</mat-error>
+      <mat-hint i18n="login email hint">Please enter your login email</mat-hint>
     </mat-form-field>
     <mat-form-field>
-      <input type="password" matInput placeholder="Your password" i18n-placeholder formControlName="password">
+      <input
+        type="password"
+        matInput
+        placeholder="Your password"
+        i18n-placeholder
+        formControlName="password"
+      />
       <mat-hint i18n="login password hint">Please enter your password</mat-hint>
       <mat-error i18n="login password error">Missing password</mat-error>
     </mat-form-field>
-     <button *ngIf="!(isLoading$ | async)"type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid" i18n="submit button text">Submit</button>
-     <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+    <button
+      *ngIf="(isLoading$ | async) === false"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="loginForm.invalid"
+      i18n="submit button text"
+    >
+      Submit
+    </button>
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
   </form>
 </section>

@@ -5,7 +5,9 @@
         Time to start a WorkOut</mat-card-title
       >
       <mat-card-content fxLayoutAlign="center">
-        <mat-form-field *ngIf="!(isLoading$ | async) && exercises$ | async">
+        <mat-form-field
+          *ngIf="(isLoading$ | async) === false && exercises$ | async"
+        >
           <mat-select
             placeholder="Select type of training"
             i18n-placeholder
@@ -23,7 +25,10 @@
         </mat-form-field>
         <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
       </mat-card-content>
-      <mat-card-actions fxLayoutAlign="center" *ngIf="!(isLoading$ | async)">
+      <mat-card-actions
+        fxLayoutAlign="center"
+        *ngIf="(isLoading$ | async) === false"
+      >
         <button
           *ngIf="exercises$ | async"
           mat-button
@@ -34,7 +39,7 @@
           Start
         </button>
         <button
-          *ngIf="!(exercises$ | async)"
+          *ngIf="(exercises$ | async) === null"
           mat-button
           type="button"
           (click)="fetchExercises()"
