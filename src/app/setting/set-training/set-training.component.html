@@ -46,8 +46,14 @@
           formControlName="imagePath"
           accept="image/*"
         />
-
-        <button mat-flat-button color="primary">Upload Image</button>
+        <button
+          *ngIf="exerciseForm.value.imagePath !== null"
+          mat-flat-button
+          color="primary"
+          (click)="uploadImage()"
+        >
+          Upload Image
+        </button>
       </mat-toolbar>
       <section>
         <button
