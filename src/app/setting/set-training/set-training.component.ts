@@ -7,6 +7,8 @@ import * as fromTraining from '../../training/training.reducer';
 import * as Training from '../../training/training.actions';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogTrainingComponent } from '../dialog-training/dialog-training.component';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-set-training',
@@ -28,7 +30,8 @@ export class SetTrainingComponent implements OnInit {
     private formBuilder: FormBuilder,
     private store: Store<fromTraining.State>,
     private trainingService: TrainingService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private firebaseStorage: AngularFireStorage
   ) {}
 
   ngOnInit(): void {
@@ -92,6 +95,8 @@ export class SetTrainingComponent implements OnInit {
   }
 
   uploadImage(): void {
-    console.log('trigger upload');
+    let imageUUId = uuidv4();
+    this.firebaseStorage.upload(imageUUId, this.exerciseForm.value.imagePath);
+    // TODO: resolve C:/fakepath issue
   }
 }
